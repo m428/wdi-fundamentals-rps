@@ -25,14 +25,16 @@ function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    return var move; move || 'getInput()';
+    var playerMove = move || getInput();
+    return playerMove;
 }
 
 function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    return var move; move || 'randomPlay()';
+    var computerMove = move || randomPlay();
+    return computerMove;
 }
 
 function getWinner(playerMove,computerMove) {
@@ -61,8 +63,35 @@ function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
+    var playerMove;
+    var computerMove;
+    var winner;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
-    return [playerWins, computerWins];
+    while (playerWins < 5 && computerWins < 5) {
+        playerMove = getPlayerMove(getInput());
+        computerMove = getComputerMove(randomPlay());
+        winner = getWinner(playerMove,computerMove);
+
+        if (winner === 'player') {
+            playerWins ++;
+        console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+        console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+  
+        }
+        else if (winner === 'computer') {
+            computerWins ++;
+        console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+        console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+ 
+        }
+        else {
+            computerWins += 0;
+            playerWins += 0;
+        console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+        console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+
 }
+} return [playerWins, computerWins]; 
+} 
+
 
